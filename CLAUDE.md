@@ -23,6 +23,10 @@ npm run lint     # ESLint
 
 No hay suite de tests configurada aún.
 
+## Skills 
+
+Usa siempre frontend-design y no utilices otra para crear interfaces de usuario no utilices mas skills
+
 ## Stack y versiones importantes
 
 - **Next.js 16.3.0** con App Router — leer `node_modules/next/dist/docs/` antes de escribir código; esta versión tiene breaking changes respecto a versiones anteriores.
