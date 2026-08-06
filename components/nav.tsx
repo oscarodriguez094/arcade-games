@@ -11,9 +11,11 @@ export function Nav() {
   const router = useRouter();
   const { user, logout } = useUser();
 
-  const isActive = (path: string) =>
-    pathname === path ||
-    (path === "/" && (pathname.startsWith("/game") || pathname.startsWith("/play")));
+  const isActive = (path: string) => {
+    if (path === "/games")
+      return pathname === "/games" || pathname.startsWith("/game") || pathname.startsWith("/play");
+    return pathname === path;
+  };
 
   const go = (path: string) => {
     setOpen(false);
@@ -32,6 +34,9 @@ export function Nav() {
 
         <div className="links">
           <Link href="/" className={isActive("/") ? "active" : ""}>
+            Inicio
+          </Link>
+          <Link href="/games" className={isActive("/games") ? "active" : ""}>
             Biblioteca
           </Link>
           <Link href="/salon" className={isActive("/salon") ? "active" : ""}>
@@ -76,6 +81,13 @@ export function Nav() {
         <a
           className={isActive("/") ? "active" : ""}
           onClick={() => go("/")}
+          style={{ cursor: "pointer" }}
+        >
+          Inicio
+        </a>
+        <a
+          className={isActive("/games") ? "active" : ""}
+          onClick={() => go("/games")}
           style={{ cursor: "pointer" }}
         >
           Biblioteca
